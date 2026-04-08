@@ -1,66 +1,68 @@
-import Image from "next/image";
+"use client";
+
+import { MONTH_THEMES } from "@/lib/monthThemes";
+import { useCalendar } from "@/hooks/useCalendar";
+import WallCalendar from "@/components/WallCalendar";
+import NotesPanel from "@/components/NotesPanel";
+import ThemeToggle from "@/components/ThemeToggle";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const cal = useCalendar();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.pageRoot}>
+      {/* Top bar */}
+      <header className={styles.topBar}>
+        <div className={styles.brand}>
+          <div className={styles.brandMark}>▦</div>
+          <div className={styles.brandText}>
+            <div className={styles.brandName}>wall calendar</div>
+            <div className={styles.brandSub}>interactive date planner</div>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <ThemeToggle />
+      </header>
+
+      {/* Two-column layout */}
+      <main className={styles.content}>
+        <div className={styles.calendarCol}>
+          <WallCalendar
+            viewMonth={cal.viewMonth}
+            viewYear={cal.viewYear}
+            selection={cal.selection}
+            hoverDate={cal.hoverDate}
+            daysInMonth={cal.getDaysInMonth(cal.viewYear, cal.viewMonth)}
+            firstDayOfWeek={cal.getFirstDayOfWeek(cal.viewYear, cal.viewMonth)}
+            selectedDaysCount={cal.selectedDaysCount()}
+            daysUntilMonthEnd={cal.daysUntilMonthEnd()}
+            isToday={cal.isToday}
+            isStart={cal.isStart}
+            isEnd={cal.isEnd}
+            isInRange={cal.isInRange}
+            onPrev={cal.goToPreviousMonth}
+            onNext={cal.goToNextMonth}
+            onDayClick={cal.handleDayClick}
+            onHoverDay={cal.setHoverDate}
+            onClear={cal.clearSelection}
+          />
+        </div>
+        <div className={styles.notesCol}>
+          <NotesPanel
+            month={cal.viewMonth}
+            year={cal.viewYear}
+            selection={cal.selection}
+          />
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className={styles.hint}>
+        <span className={styles.hintChip}>click → <strong>start</strong></span>
+        <span className={styles.hintChip}>click again → <strong>end</strong></span>
+        <span className={styles.hintChip}>hover to preview range</span>
+        <span className={styles.hintChip}>notes auto-saved</span>
+      </footer>
     </div>
   );
 }

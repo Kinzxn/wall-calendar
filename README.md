@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📅 Wall Calendar — Interactive Date Planner
+
+A polished, interactive wall calendar component built with **Next.js 14** + **TypeScript**, styled with plain **CSS Modules**. Inspired by the physical wall calendar aesthetic from the challenge brief.
+
+## Design Philosophy
+
+Minimal monochrome black-first UI inspired by Linear, Vercel, and Raycast:
+- Pure black surfaces (`#080808`) with 1px borders — no gradients, no shadows, no gloss
+- Monospace (`JetBrains Mono`) for dates, stats and labels; `Inter` for prose
+- Single accent: inverted white-on-black for selected days
+- Subtle grayscale-tinted monthly hero images from Unsplash (free, no key required)
+
+## Features
+
+### Core Requirements ✅
+| Feature | Implementation |
+|---|---|
+| Wall Calendar Aesthetic | Spiral binding strip, hero image, bottom month/year label |
+| Day Range Selector | Click start → hover preview → click end; clear visual states |
+| Integrated Notes | Tabbed panel: Monthly Memo (500 chars) + Range Notes (with labels) |
+| Responsive | Desktop 2-column, mobile stacked (≤820px breakpoint) |
+
+### Extras ✨
+- **Page-flip animation** — Framer Motion 3D rotateY on month navigation  
+- **Holiday markers** — 20 built-in US/international holidays with emoji + tooltip  
+- **Stats bar** — `Xd until month end` / `X days selected` in monospace  
+- **Dark / Light toggle** — persisted to `localStorage`, defaults to dark  
+- **Monthly hero images** — 12 curated Unsplash photos, one per month, lazy-loaded with skeleton  
+- **localStorage persistence** — all notes & memos stored per `YYYY-MM` key  
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 14** (App Router, TypeScript)
+- **Framer Motion** — page-flip transition
+- **CSS Modules** — zero Tailwind, pure vanilla CSS
+- **Unsplash** — free CDN images (no API key needed)
+- **localStorage** — all data persistence, no backend
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── globals.css          # Design tokens + resets
+│   ├── layout.tsx           # Root layout, SEO metadata
+│   ├── page.tsx             # App shell, state lifted here
+│   └── page.module.css
+├── components/
+│   ├── WallCalendar/        # Calendar, binding strip, hero, grid, day cell
+│   ├── NotesPanel/          # Tabbed notes (memo + range notes)
+│   └── ThemeToggle/         # Dark/light toggle
+├── hooks/
+│   ├── useCalendar.ts       # All date navigation & selection logic
+│   └── useNotes.ts          # localStorage notes CRUD
+└── lib/
+    ├── holidays.ts           # Static holiday data
+    └── monthThemes.ts        # Per-month Unsplash URLs
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Select a range** — click a start date, hover to preview, click an end date
+2. **Clear** — click "clear" in the stats bar
+3. **Add a note** — go to Range Notes tab, write a note + optional label, click Add
+4. **Monthly memo** — free-text area for the whole month, auto-saves
+5. **Navigate** — ‹ › buttons trigger a 3D page-flip animation
+6. **Toggle theme** — top-right switch, persisted across sessions

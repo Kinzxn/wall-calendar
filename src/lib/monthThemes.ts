@@ -1,0 +1,133 @@
+export interface MonthTheme {
+  name: string;
+  accent: string;
+  accentLight: string;
+  accentDark: string;
+  textOnAccent: string;
+  imageUrl: string;
+  imageAlt: string;
+  keyword: string;
+}
+
+export const MONTH_THEMES: MonthTheme[] = [
+  {
+    name: "January",
+    accent: "#1e6fa8",
+    accentLight: "rgba(30,111,168,0.15)",
+    accentDark: "#134d7a",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Snow-covered mountain peak in January",
+    keyword: "winter",
+  },
+  {
+    name: "February",
+    accent: "#c0392b",
+    accentLight: "rgba(192,57,43,0.13)",
+    accentDark: "#922b21",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Cherry blossom blooming in February",
+    keyword: "cherry blossom",
+  },
+  {
+    name: "March",
+    accent: "#27ae60",
+    accentLight: "rgba(39,174,96,0.13)",
+    accentDark: "#1e8449",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Spring green forest in March",
+    keyword: "spring",
+  },
+  {
+    name: "April",
+    accent: "#8e44ad",
+    accentLight: "rgba(142,68,173,0.13)",
+    accentDark: "#6c3483",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1490750967868-88df5691090b?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Lavender fields in April",
+    keyword: "flowers",
+  },
+  {
+    name: "May",
+    accent: "#d35400",
+    accentLight: "rgba(211,84,0,0.13)",
+    accentDark: "#a04000",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Golden coastal sunset in May",
+    keyword: "coast",
+  },
+  {
+    name: "June",
+    accent: "#16a085",
+    accentLight: "rgba(22,160,133,0.13)",
+    accentDark: "#0e6655",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Tropical beach in June",
+    keyword: "beach",
+  },
+  {
+    name: "July",
+    accent: "#f39c12",
+    accentLight: "rgba(243,156,18,0.13)",
+    accentDark: "#d68910",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Rolling summer hills in July",
+    keyword: "summer hills",
+  },
+  {
+    name: "August",
+    accent: "#2980b9",
+    accentLight: "rgba(41,128,185,0.13)",
+    accentDark: "#1f618d",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Dramatic mountain landscape in August",
+    keyword: "mountain",
+  },
+  {
+    name: "September",
+    accent: "#e74c3c",
+    accentLight: "rgba(231,76,60,0.13)",
+    accentDark: "#c0392b",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Autumn forest path in September",
+    keyword: "autumn",
+  },
+  {
+    name: "October",
+    accent: "#e67e22",
+    accentLight: "rgba(230,126,34,0.13)",
+    accentDark: "#ca6f1e",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1509909756405-be0199881695?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Halloween pumpkins in October",
+    keyword: "autumn leaves",
+  },
+  {
+    name: "November",
+    accent: "#7f8c8d",
+    accentLight: "rgba(127,140,141,0.13)",
+    accentDark: "#626567",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Misty forest in November",
+    keyword: "fog forest",
+  },
+  {
+    name: "December",
+    accent: "#2c3e50",
+    accentLight: "rgba(44,62,80,0.13)",
+    accentDark: "#1a252f",
+    textOnAccent: "#ffffff",
+    imageUrl: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?w=1200&h=600&fit=crop&auto=format",
+    imageAlt: "Snowy Christmas village in December",
+    keyword: "winter snow",
+  },
+];

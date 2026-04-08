@@ -1,0 +1,312 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+}
+
+/* ─── Header ─────────────────────── */
+.header {
+  padding: 14px 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 12px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: -1px;
+}
+
+.tab {
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px solid transparent;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+  font-family: var(--font-sans);
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-secondary);
+}
+
+.tabActive {
+  color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
+}
+
+/* ─── Body ───────────────────────── */
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─── Memo Tab ───────────────────── */
+.memoWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.memoLabel {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.memoTextarea {
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.65;
+  padding: 10px 12px;
+  flex: 1;
+  min-height: 130px;
+  outline: none;
+  transition: border-color var(--transition);
+  caret-color: var(--text-primary);
+}
+
+.memoTextarea:focus {
+  border-color: var(--border-strong);
+}
+
+.memoTextarea::placeholder {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.charCount {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+/* ─── Range Notes Tab ─────────────── */
+.rangeInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--surface-2);
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.rangeInfoDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.noRange {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 28px 8px;
+  line-height: 1.7;
+  font-family: var(--font-mono);
+}
+
+.noRange strong {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.addNoteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noteInput {
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 9px 11px;
+  min-height: 80px;
+  outline: none;
+  transition: border-color var(--transition);
+  caret-color: var(--text-primary);
+}
+
+.noteInput:focus {
+  border-color: var(--border-strong);
+}
+
+.noteInput::placeholder {
+  color: var(--text-muted);
+}
+
+.noteActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.labelInput {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+  transition: border-color var(--transition);
+  font-family: var(--font-mono);
+}
+
+.labelInput:focus {
+  border-color: var(--border-strong);
+}
+
+.labelInput::placeholder {
+  color: var(--text-muted);
+}
+
+.addBtn {
+  padding: 6px 16px;
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+}
+
+.addBtn:hover {
+  opacity: 0.85;
+}
+
+.addBtn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* ─── Note List ──────────────────── */
+.noteList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.noteCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: var(--surface-2);
+  animation: noteIn 0.15s ease;
+}
+
+@keyframes noteIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.noteCardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.noteMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.noteLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+}
+
+.noteDateRange {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.noteText {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 2px;
+  border-radius: var(--radius-xs);
+  transition: color var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.deleteBtn:hover {
+  color: var(--text-primary);
+}
+
+.emptyState {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  text-align: center;
+  padding: 20px 0;
+}
