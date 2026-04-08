@@ -1,4 +1,4 @@
-# 📅 Wall Calendar — Interactive Date Planner
+# Wall Calendar — Interactive Date Planner
 
 A polished, interactive wall calendar component built with **Next.js 14** + **TypeScript**, styled with plain **CSS Modules**. Inspired by the physical wall calendar aesthetic from the challenge brief.
 
@@ -12,7 +12,7 @@ Minimal monochrome black-first UI inspired by Linear, Vercel, and Raycast:
 
 ## Features
 
-### Core Requirements ✅
+### Core Requirements 
 | Feature | Implementation |
 |---|---|
 | Wall Calendar Aesthetic | Spiral binding strip, hero image, bottom month/year label |
@@ -20,7 +20,7 @@ Minimal monochrome black-first UI inspired by Linear, Vercel, and Raycast:
 | Integrated Notes | Tabbed panel: Monthly Memo (500 chars) + Range Notes (with labels) |
 | Responsive | Desktop 2-column, mobile stacked (≤820px breakpoint) |
 
-### Extras ✨
+### Extras 
 - **Page-flip animation** — Framer Motion 3D rotateY on month navigation  
 - **Holiday markers** — 20 built-in US/international holidays with emoji + tooltip  
 - **Stats bar** — `Xd until month end` / `X days selected` in monospace  
